@@ -2,6 +2,8 @@ import express from 'express'
 
 import { Router, Request, Response } from 'express';
 
+import './database/connection'
+
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -14,5 +16,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`server running in port  ${PORT}`)
+    console.log(`server running in port  ${PORT}`)
 })
