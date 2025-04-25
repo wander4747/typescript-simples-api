@@ -11,3 +11,23 @@ services:
     environment:
       - NODE_ENV=development
     command: sh -c "npm install -g typescript && tail -f /dev/null"
+    networks:
+      - api
+
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-admin}
+      PGDATA: /data/postgres
+    volumes:
+      - ./.docker/postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks:
+      - api
+
+networks:
+  api:
+    driver: bridge

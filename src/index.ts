@@ -1,4 +1,7 @@
-const express = require('express')
+import express from 'express'
+
+import { Router, Request, Response } from 'express';
+
 import dotenv from 'dotenv'
 dotenv.config()
 
