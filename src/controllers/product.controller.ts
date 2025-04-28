@@ -33,6 +33,15 @@ class ProductController {
             data: productDb
         })
     }
+
+    find = async (request: Request, response: Response): Promise<Response|null> => {
+        const id: string = request.params.id
+        const product = await this.repository.findOneBy({ id })
+
+        return response.status(200).send({
+            data: product
+        })
+    }
 }
 
 export default new ProductController
