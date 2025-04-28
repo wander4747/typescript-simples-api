@@ -1,10 +1,11 @@
 import bodyParser from 'body-parser'
 import express from 'express'
 import cors from 'cors'
+import 'module-alias/register'
 import { Router, Request, Response } from 'express';
 
-import './database/connection'
-import routes from './routes'
+import '@/database/connection'
+import routes from '@/routes'
 
 import dotenv from 'dotenv'
 dotenv.config()

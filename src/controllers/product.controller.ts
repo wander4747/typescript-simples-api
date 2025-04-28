@@ -1,6 +1,6 @@
 import {Request, response, Response} from 'express'
-import AppDataSource from '../database/connection'
-import { Product } from '../entities/product.entity'
+import AppDataSource from '@/database/connection'
+import { Product } from '@/entities/product.entity'
 import { Repository } from 'typeorm'
 
 class ProductController {
