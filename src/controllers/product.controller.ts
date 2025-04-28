@@ -38,9 +38,38 @@ class ProductController {
         const id: string = request.params.id
         const product = await this.repository.findOneBy({ id })
 
+        if (!product) {
+            return response.status(404).send({
+               error: 'Product not found'
+            })
+        }
+    
         return response.status(200).send({
             data: product
         })
+    }
+
+    update = async(request: Request, response: Response): Promise<Response> => {
+        const id: string = request.params.id
+        const {name, description, weight} = request.body
+
+        try {
+            let product = await this.repository.findOneByOrFail({ id })
+            product.name = name
+            product.description = description
+            product.weight = weight
+            
+
+            const productDb = await this.repository.save(product)
+
+            return response.status(200).send({
+                data: productDb
+            })
+        } catch (error) {
+            return response.status(404).send({
+                error: "Product not found"
+            })
+        }
     }
 }
 

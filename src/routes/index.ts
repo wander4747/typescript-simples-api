@@ -6,6 +6,6 @@ const routes = Router()
 routes.get('/api/products', productController.findAll)
 routes.post('/api/products', productController.create)
 routes.get('/api/products/:id', productController.find)
-
+routes.put('/api/products/:id', productController.update)
 
 export default routes
