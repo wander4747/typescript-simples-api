@@ -71,6 +71,18 @@ class ProductController {
             })
         }
     }
+
+    delete = async(request: Request, response: Response): Promise<Response> => {
+        try {
+            const id: string = request.params.id
+            await this.repository.delete(id)
+            return response.status(204).send({})
+        } catch (error) {
+            return response.status(400).send({
+                error: "Error deleting"
+            })
+        }
+    }
 }
 
 export default new ProductController

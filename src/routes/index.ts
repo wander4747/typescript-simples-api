@@ -7,5 +7,6 @@ routes.get('/api/products', productController.findAll)
 routes.post('/api/products', productController.create)
 routes.get('/api/products/:id', productController.find)
 routes.put('/api/products/:id', productController.update)
+routes.delete('/api/products/:id', productController.delete)
 
 export default routes
