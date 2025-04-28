@@ -1,5 +1,5 @@
+import bodyParser from 'body-parser'
 import express from 'express'
-
 import { Router, Request, Response } from 'express';
 
 import './database/connection'
@@ -11,6 +11,7 @@ dotenv.config()
 const PORT = process.env.PORT || 8080
 
 const app = express()
+app.use(bodyParser.json())
 app.use(routes)
 
 

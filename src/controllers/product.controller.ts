@@ -20,10 +20,12 @@ class ProductController {
     }
 
     create = async (request: Request, response: Response): Promise<Response> => {
+        const {name, description, weight} = request.body
+
         const product = new Product();
-        product.name = "PC"
-        product.description = "PC AMD"
-        product.weight = 5
+        product.name = name
+        product.description = description
+        product.weight = weight
 
         const productDb = await this.repository.save(product)
 
